@@ -1,4 +1,4 @@
-const body = document.querySelector('body')
+const bookList = document.querySelector('.book-list')
 let library = []
 
 function Book(title, author, numberOfPages, isRead) {
@@ -9,8 +9,8 @@ function Book(title, author, numberOfPages, isRead) {
 }
 
 Book.prototype.toString = function() {
-    return `${this.title} by ${this.author}, ` +
-        `${this.numberOfPages} pages, ` +
+    return `${this.title} by ${this.author}, \n` +
+        `${this.numberOfPages} pages, \n` +
         `${this.isRead ? "read" : "not read yet"}`
 }
 
@@ -20,9 +20,10 @@ function addToLibrary(book) {
 
 function displayLibrary() {
     for (const book of library) {
-        const pBook = document.createElement('div')
-        pBook.textContent = book.toString()
-        body.appendChild(pBook)
+        const card = document.createElement('div')
+        card.classList.add('book')
+        card.textContent = book.toString()
+        bookList.appendChild(card)
     }
 }
 

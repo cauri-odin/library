@@ -1,0 +1,66 @@
+:root {
+    --serif: 'Times New Roman', Times, serif;
+    --sans-serif: sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: min(100%, 1000px);
+    gap: 3rem;
+    align-content: start;
+    justify-content: center;
+    background-color: mistyrose;
+}
+
+header {
+    font-family: var(--sans-serif);
+    font-size: 2rem;
+    font-weight: bold;
+    color: blueviolet;
+}
+
+.book-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.book {
+    padding: 1rem;
+    border-radius: 15px;
+    font-family: var(--serif);
+    color: blueviolet;
+    background-color: thistle;
+}
+
+footer {
+    display: flex;
+    justify-content: end;
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+    border-radius: 15px;
+    padding: .5em 2em;
+    width: max-content;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background-color: blueviolet;
+}
+
+button:hover {
+    background-color: darkviolet;
+}
