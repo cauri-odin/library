@@ -1,4 +1,6 @@
 const bookList = document.querySelector('.book-list')
+const add = document.querySelector('#add')
+
 let library = []
 
 function Book(title, author, numberOfPages, isRead) {
@@ -19,14 +21,21 @@ function addToLibrary(book) {
 }
 
 function displayLibrary() {
+    bookList.innerHTML = ''
     for (const book of library) {
-        const card = document.createElement('div')
-        card.classList.add('book')
-        card.textContent = book.toString()
-        bookList.appendChild(card)
+        const div = document.createElement('div')
+        div.classList.add('book')
+        div.textContent = book.toString()
+        bookList.appendChild(div)
     }
 }
 
-addToLibrary(new Book("The Hobbit", "J.R.R. Tolkien", 295, true))
-addToLibrary(new Book("The Lord of the Rings", "J.R.R. Tolkien", 1178, false))
-displayLibrary()
+add.addEventListener("click", (event) => {
+    const title = document.querySelector('#title').value
+    const author = document.querySelector('#author').value
+    const pages = +document.querySelector('#pages').value
+    const read = document.querySelector('#read').checked
+
+    addToLibrary(new Book(title, author, pages, read))
+    displayLibrary()
+})
