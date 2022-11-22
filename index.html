@@ -16,7 +16,26 @@
         <section class="book-list"></section>
     </main>
     <footer>
-        <button>Add New Book</button>
+        <form class="book book--new">
+            <label for="title">
+                Title
+                <input type="text" name="title" id="title">
+            </label>
+            <label for="author">
+                Author
+                <input type="text" name="author" id="author">
+            </label>
+            <label for="pages">
+                Pages
+                <input type="text" name="pages" id="pages">
+            </label>
+            <label for="read">
+                <input type="checkbox" name="read" id="read">
+                Read
+            </label>
+
+            <button type="button">+</button>
+        </form class="book">
     </footer>
 </body>
 </html>
