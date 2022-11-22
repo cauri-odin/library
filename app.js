@@ -30,7 +30,7 @@ function displayLibrary() {
     }
 }
 
-add.addEventListener("click", (event) => {
+add.addEventListener("click", () => {
     const title = document.querySelector('#title').value
     const author = document.querySelector('#author').value
     const pages = +document.querySelector('#pages').value

@@ -7,9 +7,37 @@
     box-sizing: border-box;
 }
 
-h1 {
+h1, h2 {
     margin: 0;
     padding: 0;
+}
+
+h2 {
+    position: relative;
+    margin-left: 3rem;
+    font-family: var(--sans-serif);
+    font-size: .8rem;
+    font-weight: 600;
+    color: blueviolet;
+}
+
+h2::before,
+h2::after {
+    content: "";
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    background-color: blueviolet;
+}
+
+h2::before {
+    width: 2rem;
+    left: -3rem;
+}
+
+h2::after {
+    width: calc(100% - 5.5rem);
+    left: 5.5rem;
 }
 
 body {
@@ -31,14 +59,11 @@ header {
     color: blueviolet;
 }
 
-.book-list {
+main,
+.book-list,
+footer {
     display: grid;
     gap: 1rem;
-}
-
-footer {
-    display: flex;
-    justify-content: end;
 }
 
 .book {
