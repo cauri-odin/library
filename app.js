@@ -13,9 +13,11 @@ function Book(title, author, numberOfPages, isRead) {
 }
 
 Book.prototype.toString = function() {
-    return `${this.title} by ${this.author}, \n` +
-        `${this.numberOfPages} pages, \n` +
-        `${this.isRead ? "read" : "not read yet"}`
+    return `${this.title} by ${this.author}, ${this.numberOfPages} pages`
+}
+
+Book.prototype.toggleRead = function() {
+    this.isRead = !this.isRead
 }
 
 function addToLibrary(book) {
@@ -35,6 +37,16 @@ function displayLibrary() {
         div.classList.add('book')
         div.textContent = book.toString()
 
+        const label = document.createElement('label')
+        label.setAttribute('for', `read-${book.id}`)
+
+        const read = document.createElement('input')
+        read.setAttribute('type', 'checkbox')
+        read.id = `read-${book.id}`
+        read.checked = book.isRead
+        label.textContent = 'Read'
+        read.addEventListener('click', () => book.toggleRead())
+
         const remove = document.createElement('button')
         remove.textContent = "-"
         remove.addEventListener("click", () => {
@@ -42,9 +54,13 @@ function displayLibrary() {
             displayLibrary()
         })
 
+        label.prepend(read)
+        div.appendChild(label)
         div.appendChild(remove)
         bookList.appendChild(div)
     }
+
+    console.log(library)
 }
 
 add.addEventListener("click", () => {

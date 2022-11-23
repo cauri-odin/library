@@ -94,7 +94,7 @@ footer {
     letter-spacing: .1rem;
 }
 
-.book label[for="read"] {
+.book label:last-of-type {
     margin-top: 1.5rem;
     flex-direction: row;
     gap: .25rem;
